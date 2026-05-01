@@ -2,6 +2,7 @@ import Banco from "../database/Banco";
 import Cliente from "../models/Cliente";
 import Quarto from "../models/Quarto";
 import { TipoQuarto } from "../enum/TipoQuarto";
+import Reserva from "../models/Reserva";
 
 export default class ControleTotal {
     //ajeitar para que o banco seja definido e usado pelo 
@@ -40,5 +41,13 @@ export default class ControleTotal {
     public listarQuartos(): void {
         console.log(this.banco.quarto);
     }
-    
+    //AQUI ESTA A INJECAO DE DEPENDENCIA DE RESERVA PELO
+    //CONTROLER
+    public criarReservaTeste(): void {
+        const cliente = new Cliente("Miryan", "10298769");
+        const quarto = new Quarto(101, TipoQuarto.SOLTEIRO, 5);
+        const reserva = new Reserva(cliente, quarto);
+        console.log("Reserva criada!");
+        reserva.mostrarDados();
+    }
 }
