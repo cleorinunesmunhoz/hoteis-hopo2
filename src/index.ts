@@ -3,6 +3,7 @@ import Cliente from "./models/Cliente";
 import Quarto from "./models/Quarto";
 import { TipoQuarto } from "./enum/TipoQuarto";
 import Banco from "./database/Banco";
+import ControleTotal from "./controller/ControleTotal";
 
 ////aqui eu crio a variavel e inicializo com new
 //const pessoa1= new Pessoa("Cleori");
@@ -21,11 +22,21 @@ import Banco from "./database/Banco";
 ////chamar o metodo
 //quarto1.mostrarDados();
 
-//testando o banco
-//primeiro cria o banco e novo cliente
+////testando o banco
+////primeiro cria o banco e novo cliente
 const banco = new Banco();
 const Cliente1 = new Cliente("amadeu", "97809");
-//guardando no banco
-banco.Cliente.push(Cliente1);
-console.log(banco.Cliente);
+////guardando no banco
+banco.cliente.push(Cliente1);
+console.log(banco.cliente);
+
+//testando o controler, ainda banco  cliente e listar cliente
+const secretaria = new ControleTotal();
+secretaria.criarClienteTeste();
+secretaria.listarClientes();
+
+//testando os quartos os metodos do controler
+secretaria.criarQuartoTeste();
+secretaria.listarQuartos();
+
 

@@ -1,8 +1,10 @@
 import Pessoa from "../models/Pessoa";
 import Cliente from "../models/Cliente";
+import Quarto from "../models/Quarto";
 
 export default class Banco {
 
-    public Cliente: Pessoa[] =[];
-    public Pessoa: Cliente[] =[];
+    public cliente: Cliente[] =[];
+    public pessoa: Pessoa[] =[];
+    public quarto: Quarto [] = [];
 }
