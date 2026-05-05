@@ -16,11 +16,17 @@ export default class ControleTotal {
     
     //metodo para criar cliente via controler dando new 
     // e salvando no banco via push
-    public criarClienteTeste() {
-        const cliente = new Cliente("mariana", "1029");
+    
+    //////public criarClienteTeste() {
+        //////const cliente = new Cliente("mariana", "1029");
+        /////this.banco.cliente.push(cliente);
+      /// //console.log("Cliente cadastrado criado");
+    //}
+    public createNewClient(name:string, cpf:string){
+        const cliente = new Cliente(name, cpf);
         this.banco.cliente.push(cliente);
         console.log("Cliente cadastrado criado");
-    }
+    } 
 
     // agora o metodo  para listar os clientes
     public listarClientes()  {
