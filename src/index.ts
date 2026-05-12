@@ -1,49 +1,60 @@
-import Pessoa from "./models/Pessoa";
-import Cliente from "./models/Cliente";
-import Quarto from "./models/Quarto";
-import { TipoQuarto } from "./enum/TipoQuarto";
-import Banco from "./database/Banco";
-import ControleTotal from "./controller/ControleTotal";
-import Reserva from "./models/Reserva";
+import Person from "./models/Person";
+import Client from "./models/Client";
+import Room from "./models/Room";
+import { RoomType } from "./enum/RoomType";
+import Database from "./database/Database";
+import TotalController from "./controller/TotalController";
+import Reservation from "./models/Reservation";
 
 ////aqui eu crio a variavel e inicializo com new
-//const pessoa1= new Pessoa("Cleori");
+//const person1 = new Person("Cleori");
+
 ////aqui eu peco pra mostrar na tela
-//console.log(pessoa1.getNome);
+//console.log(person1.getName);
+
 ////aqui eu altero o nome pelo set
-//pessoa1.setNome ="heliton";
-//console.log(pessoa1.getNome);
+//person1.setName = "heliton";
+
+//console.log(person1.getName);
 
 ////testar a heranca
-const cliente1 = new Cliente("analice", "12345");
-//Cliente1.mostrarDados();
+const client1 = new Client("analice", "12345");
 
-////testar  modelo quarto
-const quarto1 = new Quarto (1, TipoQuarto.LUXO, 5);
+//client1.showData();
+
+////testar modelo quarto
+const room1 = new Room(1, RoomType.LUXO, 5);
+
 ////chamar o metodo
-//quarto1.mostrarDados();
+//room1.showData();
 
 ////testando o banco
 ////primeiro cria o banco e novo cliente
-//const banco = new Banco();
-//const Cliente1 = new Cliente("amadeu", "97809");
+//const database = new Database();
+
+//const client2 = new Client("amadeu", "97809");
+
 ////guardando no banco
-//banco.cliente.push(Cliente1);
-//console.log(banco.cliente);
+//database.client.push(client2);
 
-////testando o controler, ainda banco  cliente e listar cliente
-//const secretaria = new ControleTotal();
-//secretaria.criarClienteTeste();
-//secretaria.listarClientes();
+//console.log(database.client);
 
-////testando os quartos os metodos do controler
-//secretaria.criarQuartoTeste();
-//secretaria.listarQuartos();
+////testando o controller, ainda banco cliente e listar cliente
+//const secretary = new TotalController();
 
-//AQUI NA RESERVA ESTA A INJECAO DE DEPENDENCIA, 
-//quando eu dou new, mas aqui entendi mais, porque 
-//tanto cliente quanto reserva ja estao prontos, 
+//secretary.createNewClient("Mariana", "1029");
+
+//secretary.listClients();
+
+////testando os quartos os metodos do controller
+//secretary.createRoomTest();
+
+//secretary.listRooms();
+
+//AQUI NA RESERVA ESTA A INJECAO DE DEPENDENCIA,
+//quando eu dou new, mas aqui entendi mais, porque
+//tanto cliente quanto reserva ja estao prontos,
 //so fiz a juncao e dei new.
-const reserva1 = new Reserva(cliente1, quarto1);
+const reservation1 = new Reservation(client1, room1);
 
-reserva1.mostrarDados();
+reservation1.showData();

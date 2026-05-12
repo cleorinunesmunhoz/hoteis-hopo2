@@ -1,4 +1,4 @@
-export enum TipoQuarto {
+export enum RoomType {
 
     SOLTEIRO = "solteiro",
     CASAL = "Casal",
