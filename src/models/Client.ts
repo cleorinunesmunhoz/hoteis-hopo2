@@ -1,12 +1,17 @@
+import { IEntity } from "./IEntity";
 import Person from "./Person";
 
-export default class Client extends Person {
+export default class Client extends Person implements IEntity {
 
     private cpf: string;
 
     constructor(name: string, cpf: string) {
         super(name);
         this.cpf = cpf;
+    }
+    id: number = 5;
+    getNumber1(): number {
+        return this.id;
     }
 
     public get getCpf(): string {

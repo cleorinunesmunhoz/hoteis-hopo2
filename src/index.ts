@@ -19,12 +19,12 @@ import "./view/Menu";
 //console.log(person1.getName);
 
 ////testar a heranca
-const client1 = new Client("analice", "12345");
+// const client1 = new Client("analice", "12345");
 
-//client1.showData();
+// //client1.showData();
 
-////testar modelo quarto
-const room1 = new Room(1, RoomType.LUXO, 5);
+// ////testar modelo quarto
+// const room1 = new Room(1, RoomType.LUXO, 5);
 
 ////chamar o metodo
 //room1.showData();
@@ -56,6 +56,8 @@ const room1 = new Room(1, RoomType.LUXO, 5);
 //quando eu dou new, mas aqui entendi mais, porque
 //tanto cliente quanto reserva ja estao prontos,
 //so fiz a juncao e dei new.
-const reservation1 = new Reservation(client1, room1);
+// const reservation1 = new Reservation(client1, room1);
 
-reservation1.showData();
+// reservation1.showData();
+
+new TotalController();

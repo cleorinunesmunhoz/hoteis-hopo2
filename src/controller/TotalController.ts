@@ -3,6 +3,7 @@ import Client from "../models/Client";
 import Room from "../models/Room";
 import { RoomType } from "../enum/RoomType";
 import Reservation from "../models/Reservation";
+import Menu from "../view/Menu";
 
 export default class TotalController {
 
@@ -10,9 +11,11 @@ export default class TotalController {
     //controller ou secretaria do sistema
 
     private database: Database;
+    private menu = new Menu(this);
 
     constructor() {
         this.database = new Database();
+        this.menu.initialScreen();
     }
 
     //metodo para criar cliente via controller dando new

@@ -1,6 +1,7 @@
 import { RoomType } from "../enum/RoomType";
+import { IEntity } from "./IEntity";
 
-export default class Room {
+export default class Room implements IEntity{
 
     private number: number;
     private type: RoomType;
@@ -10,6 +11,10 @@ export default class Room {
         this.number = number;
         this.type = type;
         this.days = days;
+    }
+    id: number;
+    getNumber1(): number {
+        return 0;
     }
 
     public get getNumber(): number {

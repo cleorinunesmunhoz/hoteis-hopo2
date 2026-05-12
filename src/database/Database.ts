@@ -1,6 +1,7 @@
 import Person from "../models/Person";
 import Client from "../models/Client";
 import Room from "../models/Room";
+import Reservation from "../models/Reservation";
 
 export default class Database {
 
@@ -9,4 +10,8 @@ export default class Database {
     public person: Person[] = [];
 
     public room: Room[] = [];
+
+    public reservation: Reservation[] = [];
+
+    
 }

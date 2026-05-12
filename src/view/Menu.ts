@@ -6,116 +6,126 @@ import { RoomType } from "../enum/RoomType";
 import Client from "../models/Client";
 import Room from "../models/Room";
 
-const controller = new TotalController();
+export default class Menu {
 
-let option: number = 0;
+    private controller;
 
-while (option !== 5) {
+    constructor(controller: TotalController){
+      this.controller = controller;
+    }
 
-    console.log("\n====== HOTEL DA CLEO ======");
+    public initialScreen() {
 
-    console.log("1 - Cadastrar Cliente");
+        let option: number = 0;
 
-    console.log("2 - Criar Quarto");
+        while (option !== 5) {
 
-    console.log("3 - Criar Reserva");
+            console.log("\n====== HOTEL DA CLEO ======");
 
-    console.log("4 - Listar Tudo");
+            console.log("1 - Cadastrar Cliente");
 
-    console.log("5 - Sair");
+            console.log("2 - Criar Quarto");
 
-    option = Number(prompt("Escolha uma opcao: "));
+            console.log("3 - Criar Reserva");
 
-    switch (option) {
+            console.log("4 - Listar Tudo");
 
-        case 1:
+            console.log("5 - Sair");
 
-            const name = prompt("Digite o nome: ");
+            option = Number(prompt("Escolha uma opcao: "));
 
-            const cpf = prompt("Digite o cpf: ");
+            switch (option) {
 
-            controller.createNewClient(name, cpf);
+                case 1:
 
-            break;
+                    const name = prompt("Digite o nome: ");
 
-        case 2:
+                    const cpf = prompt("Digite o cpf: ");
 
-            const number = Number(
-                prompt("Digite o numero do quarto: ")
-            );
+                    this.controller.createNewClient(name, cpf);
 
-            const type = prompt(
-                "Digite o tipo (SOLTEIRO, CASAL, LUXO): "
-            );
+                    break;
 
-            const days = Number(
-                prompt("Digite a quantidade de dias: ")
-            );
+                case 2:
 
-            controller.createNewRoom(
-                number,
-                RoomType[type as keyof typeof RoomType],
-                days
-            );
+                    const number = Number(
+                        prompt("Digite o numero do quarto: ")
+                    );
 
-            break;
+                    const type = prompt(
+                        "Digite o tipo (SOLTEIRO, CASAL, LUXO): "
+                    );
 
-        case 3:
+                    const days = Number(
+                        prompt("Digite a quantidade de dias: ")
+                    );
 
-            const clientName = prompt(
-                "Digite o nome do cliente: "
-            );
+                    this.controller.createNewRoom(
+                        number,
+                        RoomType[type as keyof typeof RoomType],
+                        days
+                    );
 
-            const clientCpf = prompt(
-                "Digite o CPF do cliente: "
-            );
+                    break;
 
-            const roomNumber = Number(
-                prompt("Digite o numero do quarto: ")
-            );
+                case 3:
 
-            const roomType = prompt(
-                "Digite o tipo do quarto (SOLTEIRO, CASAL, LUXO): "
-            );
+                    const clientName = prompt(
+                        "Digite o nome do cliente: "
+                    );
 
-            const roomDays = Number(
-                prompt("Digite os dias da reserva: ")
-            );
+                    const clientCpf = prompt(
+                        "Digite o CPF do cliente: "
+                    );
 
-            const client = new Client(
-                clientName,
-                clientCpf
-            );
+                    const roomNumber = Number(
+                        prompt("Digite o numero do quarto: ")
+                    );
 
-            const room = new Room(
-                roomNumber,
-                RoomType[roomType as keyof typeof RoomType],
-                roomDays
-            );
+                    const roomType = prompt(
+                        "Digite o tipo do quarto (SOLTEIRO, CASAL, LUXO): "
+                    );
 
-            controller.createNewReservation(
-                client,
-                room
-            );
+                    const roomDays = Number(
+                        prompt("Digite os dias da reserva: ")
+                    );
 
-            break;
+                    const client = new Client(
+                        clientName,
+                        clientCpf
+                    );
 
-        case 4:
+                    const room = new Room(
+                        roomNumber,
+                        RoomType[roomType as keyof typeof RoomType],
+                        roomDays
+                    );
 
-            controller.listClients();
+                    this.controller.createNewReservation(
+                        client,
+                        room
+                    );
 
-            controller.listRooms();
+                    break;
 
-            break;
+                case 4:
 
-        case 5:
+                    this.controller.listClients();
 
-            console.log("Sistema encerrado");
+                    this.controller.listRooms();
 
-            break;
+                    break;
 
-        default:
+                case 5:
 
-            console.log("Opcao invalida");
+                    console.log("Sistema encerrado");
+
+                    break;
+
+                default:
+
+                    console.log("Opcao invalida");
+            }
+        }
     }
 }
