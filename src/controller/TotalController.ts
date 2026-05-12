@@ -23,7 +23,7 @@ export default class TotalController {
 
         this.database.client.push(client);
 
-        console.log("Client created");
+        console.log("Cliente criado com sucesso");
     }
 
     //agora o metodo para listar os clientes
@@ -31,32 +31,35 @@ export default class TotalController {
         console.log(this.database.client);
     }
 
-    //agora o metodo para criar os quartos e dar new e
-    //salvando via push lembrando que tem enum
-    public createRoomTest(): void {
-        const room = new Room(101, RoomType.LUXO, 3);
-
+    public createNewRoom(
+        number: number,
+        type: RoomType,
+        days: number
+    ): void {
+    
+        const room = new Room(number, type, days);
+    
         this.database.room.push(room);
-
-        console.log("Room created!");
+    
+        console.log("quarto cadastrado!");
     }
-
     //agora metodo para listar os quartos
     public listRooms(): void {
         console.log(this.database.room);
     }
 
-    //AQUI ESTA A INJECAO DE DEPENDENCIA DE RESERVA PELO
-    //CONTROLLER
-    public createReservationTest(): void {
-        const client = new Client("Miryan", "10298769");
+   //AQUI ESTA A INJECAO DE DEPENDENCIA DE RESERVA PELO
+//CONTROLLER
+public createNewReservation(
+    client: Client,
+    room: Room
+): void {
 
-        const room = new Room(101, RoomType.SOLTEIRO, 5);
+    const reservation = new Reservation(client, room);
 
-        const reservation = new Reservation(client, room);
+    console.log("Reserva criada!");
 
-        console.log("Reservation created!");
+    reservation.showData();
 
-        reservation.showData();
     }
 }

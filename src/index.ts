@@ -5,6 +5,7 @@ import { RoomType } from "./enum/RoomType";
 import Database from "./database/Database";
 import TotalController from "./controller/TotalController";
 import Reservation from "./models/Reservation";
+import "./view/Menu";
 
 ////aqui eu crio a variavel e inicializo com new
 //const person1 = new Person("Cleori");
