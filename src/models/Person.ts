@@ -1,4 +1,7 @@
-export default class Person {
+//tornei essa classe abstrata porque pessoa é abstrata, ela pode ser cliente, funcionario
+//gerente, enfim...
+
+export default abstract class Person {
 
     private name: string;
 
