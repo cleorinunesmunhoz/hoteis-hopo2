@@ -33,23 +33,44 @@ export default class TotalController {
     public listClients(): void {
         console.log(this.database.client);
     }
+    //SOBRECARGA
+//a sobrecarga permite usar o mesmo metodo
+//de formas diferentes
 
-    public createNewRoom(
-        number: number,
-        type: RoomType,
-        days: number
-    ): void {
-    
-        const room = new Room(number, type, days);
-    
-        this.database.room.push(room);
-    
-        console.log("quarto cadastrado!");
-    }
-    //agora metodo para listar os quartos
-    public listRooms(): void {
-        console.log(this.database.room);
-    }
+//nesse caso createNewRoom pode:
+//receber apenas numero e tipo
+//ou numero, tipo e dias
+
+//isso deixa o metodo mais flexivel
+//sem precisar criar varios metodos diferentes
+
+public createNewRoom(
+    number: number,
+    type: RoomType
+): void;
+
+public createNewRoom(
+    number: number,
+    type: RoomType,
+    days: number
+): void;
+
+public createNewRoom(
+    number: number,
+    type: RoomType,
+    days?: number
+): void {
+
+    const room = new Room(
+        number,
+        type,
+        days ?? 1
+    );
+
+    this.database.room.push(room);
+
+    console.log("quarto cadastrado!");
+}
 
    //AQUI ESTA A INJECAO DE DEPENDENCIA DE RESERVA PELO
 //CONTROLLER

@@ -21,8 +21,17 @@ export default class Client extends Person implements IEntity {
     public set setCpf(newCpf: string) {
         this.cpf = newCpf;
     }
+    
+    //aqui implementei a sobrescrita que  é implementar o mesmo método da classe pai na classe filha usando override
+    //A sobrescrita permite:
+    //manter o mesmo nome do método
+    //mas adaptar o comportamento para a classe filha.
+    //quando chamada essa classe ela vai mostar tanto nome quando cpf,
+    //lembrando que o nome e herdado de person, mas no metodo antigo nao mostrava
+    public override showData(): void {
 
-    public showData(): void {
-        console.log("Name: " + this.getName + "\nCPF " + this.getCpf);
+        console.log("Nome: " + this.getName);
+    
+        console.log("CPF: " + this.getCpf);
     }
 }
