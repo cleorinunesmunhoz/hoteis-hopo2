@@ -76,10 +76,11 @@ public createNewRoom(
 //CONTROLLER
 public createNewReservation(
     client: Client,
-    room: Room
+    room: Room,
+    daysReservation: number
 ): void {
 
-    const reservation = new Reservation(client, room);
+    const reservation = new Reservation(client, room, daysReservation) ;
 
     console.log("Reserva criada!");
 
